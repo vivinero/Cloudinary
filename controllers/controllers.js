@@ -5,8 +5,8 @@ const cloudinary = require("../utils/multer")
 exports.signUp = async (req, res)=> {
     try {
         const {fullName, stack}= req.body;
-        const file = req.file.path
         //cloudinary
+        const file = req.file.path
         const result = await cloudinary.uploader.upload(file)
 
         const profile = await userModel.create({fullName, stack, profilePicture: file})
